@@ -2,10 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 
-const textShadowStyle = {
-  textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)'
-}
-
 const Header = () => {
     const [lang, setLang] = useState<'PL' | 'EN'>('PL')
     const [isOpen, setIsOpen] = useState(false)
@@ -111,7 +107,6 @@ const Header = () => {
                                 href="#hero"
                                 onClick={(e) => handleAnchorClick(e, 'hero')}
                                 className={`duration-300 hover:text-[#B2CC07] ${activeSection === 'hero' ? 'text-[#B2CC07]' : 'text-black'}`}
-                                style={!scrolled ? textShadowStyle : {}}
                             >
                                 Home
                             </a>
@@ -121,7 +116,6 @@ const Header = () => {
                                 href="#mainFunction"
                                 onClick={(e) => handleAnchorClick(e, 'mainFunction')}
                                 className={`duration-300 hover:text-[#B2CC07] ${activeSection === 'mainFunction' ? 'text-[#B2CC07]' : 'text-black'}`}
-                                style={!scrolled ? textShadowStyle : {}}
                             >
                                 Dla kogo
                             </a>
@@ -131,7 +125,6 @@ const Header = () => {
                                 href="#opinions"
                                 onClick={(e) => handleAnchorClick(e, 'opinions')}
                                 className={`duration-300 hover:text-[#B2CC07] ${activeSection === 'opinions' ? 'text-[#B2CC07]' : 'text-black'}`}
-                                style={!scrolled ? textShadowStyle : {}}
                             >
                                 Testimonials
                             </a>
@@ -141,7 +134,6 @@ const Header = () => {
                                 href="#faq"
                                 onClick={(e) => handleAnchorClick(e, 'faq')}
                                 className={`duration-300 hover:text-[#B2CC07] ${activeSection === 'faq' ? 'text-[#B2CC07]' : 'text-black'}`}
-                                style={!scrolled ? textShadowStyle : {}}
                             >
                                 FAQ
                             </a>
@@ -151,7 +143,6 @@ const Header = () => {
                                 href="#joinTester"
                                 onClick={(e) => handleAnchorClick(e, 'joinTester')}
                                 className={`duration-300 hover:text-[#B2CC07] ${activeSection === 'joinTester' ? 'text-[#B2CC07]' : 'text-black'}`}
-                                style={!scrolled ? textShadowStyle : {}}
                             >
                                 Kontakt
                             </a>
