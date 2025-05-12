@@ -1,3 +1,6 @@
+"use client"
+import { useState } from 'react';
+
 import BusinessCard from "@/components/animated/BusinessCard";
 import RevealOnScroll from "@/components/animated/RevealOnScroll";
 import Solution from "@/components/animated/Solution";
@@ -8,6 +11,7 @@ import OpinionSlider from "@/components/OpinionSlider";
 
 
 export default function Home() {
+  const [showVideoModal, setShowVideoModal] = useState(false);
   const data = [
     {
       question: 'Czy fit.expert jest za darmo?',
@@ -95,11 +99,14 @@ export default function Home() {
                 <img src="/images/radial-2.svg" alt="" className="absolute -top-1/2 left-1/2 -translate-x-1/2 translate-y-[25%]" />
                 <img src="/images/instruction-demo2.svg" alt="" className="relative z-[1]" />
                 <div className="h-1/2 w-full bg-gradient-to-t from-black to-transparent absolute left-0 bottom-0 z-[1]"></div>
-                <div className="size-[183px] absolute top-1/2 left-1/2 -translate-1/2 z-10 rounded-full max-[650px]:size-[91px]">
-                  <button className="size-full bg-black flex items-center justify-center rounded-full relative z-10">
-                    <img src="/icons/play-circle.svg" alt="" className="max-[650px]:w-9" />
+                <div className="size-[183px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-full max-[650px]:size-[91px]">
+                  <button 
+                    onClick={() => setShowVideoModal(true)}
+                    className="size-full bg-black flex items-center justify-center rounded-full relative z-10 cursor-pointer hover:bg-gray-900 transition-colors"
+                  >
+                    <img src="/icons/play-circle.svg" alt="" className="max-[650px]:w-9 pointer-events-none" />
                   </button>
-                  <span className="w-full h-full absolute top-1/2 left-1/2 -translate-1/2 rounded-full bg-[rgba(128,194,226,1)] opacity-75 animate-[ping_2s_ease-in-out_infinite]"></span>
+                  <span className="w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(128,194,226,1)] opacity-75 animate-[ping_2s_ease-in-out_infinite] pointer-events-none"></span>
                 </div>
               </div>
             </div>
@@ -525,6 +532,41 @@ export default function Home() {
         </section>
 
         <Footer />
+
+          {/* Modal z filmem */}
+          {showVideoModal && (
+            <div 
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+              onClick={() => setShowVideoModal(false)}
+            >
+              <div 
+                className="relative w-full max-w-4xl max-h-[90vh]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button 
+                  onClick={() => setShowVideoModal(false)}
+                  className="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 transition-colors z-50 
+                            max-[650px]:-top-8 max-[650px]:right-2 max-[650px]:text-3xl 
+                            bg-black/50 rounded-full w-10 h-10 flex items-center justify-center
+                            max-[650px]:w-8 max-[650px]:h-8"
+                >
+                  ×
+                </button>
+                <div className="relative pt-[56.25%] bg-black rounded-lg overflow-hidden shadow-2xl">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/Xod8Un1RD0E?autoplay=1"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          )}
+
       </main>
     </div >
   );

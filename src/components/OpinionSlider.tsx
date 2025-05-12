@@ -10,12 +10,6 @@ import 'swiper/css/effect-fade';
 
 const sliderContent = [
     {
-        image: '/images/slider-image-1.jpg',
-        content: 'Dzięki tej platformie nie musze juz więcej używać nudnego Excela do zarządzania moimi klientami. Wszystko mam pod kontrolą a moi klienci sami umawiają wizyty. Zaoszczędziłam mnóstwo czasu!',
-        name: 'Justyna Babicz',
-        role: 'CFO at FinSecure',
-    },
-    {
         image: '/images/slider-image-2.png',
         content: 'Dzięki tej platformie nie musze juz więcej używać nudnego Excela do zarządzania moimi klientami. Wszystko mam pod kontrolą a moi klienci sami umawiają wizyty. Zaoszczędziłam mnóstwo czasu!',
         name: 'Piotr Piechnik',
