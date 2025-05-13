@@ -1,6 +1,5 @@
 "use client"
 import { useState } from 'react';
-
 import BusinessCard from "@/components/animated/BusinessCard";
 import RevealOnScroll from "@/components/animated/RevealOnScroll";
 import Solution from "@/components/animated/Solution";
