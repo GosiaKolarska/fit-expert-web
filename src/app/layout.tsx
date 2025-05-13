@@ -5,6 +5,7 @@ import { aeonik } from './fonts'
 import "./globals.css";
 import LenisProvider from "@/components/animated/LenisProvider";
 import MetaPixelTracker from "@/components/tracking/MetaPixelTracker";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,10 +17,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Fit Expert",
   description: "Fit Expert is your ultimate fitness companion, offering expert guidance, personalized workouts, and health tips to help you achieve your wellness goals.",
+  metadataBase: new URL('https://fit.expert'),
   openGraph: {
     title: "Fit Expert",
     description: "Fit Expert is your ultimate fitness companion, offering expert guidance, personalized workouts, and health tips to help you achieve your wellness goals.",
@@ -69,7 +70,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${aeonik.className} antialiased`} >
-        <MetaPixelTracker />
+        <Suspense fallback={null}>
+          <MetaPixelTracker />
+        </Suspense>
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
